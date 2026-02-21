@@ -13,7 +13,7 @@ if (count _this < 2) exitWith {
 			"disable (not completed) " + (gosa_SquadRole_array select 0), // 1
 			"reset " + (gosa_SquadRole_array select 0) // 2
 		], "", "
-			[gosa_SquadRole_array, %2] execVM 'dir\functions\fnc_setSquad.sqf';
+			[gosa_SquadRole_array, %2] spawn gosa_fnc_setSquad;
 			gosa_SquadRole_array = nil;
 		"
 	] call BIS_FNC_createmenu;

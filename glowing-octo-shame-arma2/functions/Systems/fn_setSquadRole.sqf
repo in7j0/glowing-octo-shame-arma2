@@ -121,7 +121,7 @@ gosa_TMP = {
 			gosa_SquadRole_array = nil;
 	}else{
 		gosa_SquadRole_array = _z;
-		[gosa_SquadRole_array] execVM 'dir\functions\fnc_setSquad.sqf';
+		[gosa_SquadRole_array] spawn gosa_fnc_setSquad;
 	};
 
 };

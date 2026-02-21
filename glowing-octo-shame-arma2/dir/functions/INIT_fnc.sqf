@@ -26,7 +26,8 @@ if (isServer) then {
 	];
 	for "_i" from 0 to (count _arr -1) do {
 		if (isNil format ["%1%2", _prefix, _arr select _i]) then {
-			call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _arr select _i, _path];
+			//diag_log format ["Log: [gosa_fnc_init] waitUntil '%1%2'", _prefix, _arr select _i, _path];
+			//call compile format ["waitUntil {!isNil '%1%2'}", _prefix, _arr select _i, _path];
 		};
 	};
 };
@@ -66,7 +67,8 @@ if !(IsDedicated) then {
 	];
 	for "_i" from 0 to (count _arr -1) do {
 		if (isNil format ["%1%2", _prefix, _arr select _i]) then {
-			call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _arr select _i, _path];
+			//diag_log format ["Log: [gosa_fnc_init] waitUntil '%1%2'", _prefix, _arr select _i, _path];
+			//call compile format ["waitUntil {!isNil '%1%2'}", _prefix, _arr select _i, _path];
 		};
 	};
 };
@@ -255,14 +257,16 @@ _arr = [
 ];
 for "_i" from 0 to (count _arr -1) do {
 	if (isNil format ["%1%2", _prefix, _arr select _i]) then {
-		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _arr select _i, _path];
+		//diag_log format ["Log: [gosa_fnc_init] waitUntil '%1%2'", _prefix, _arr select _i, _path];
+		//call compile format ["waitUntil {!isNil '%1%2'}", _prefix, _arr select _i, _path];
 	};
 };
 diag_log format ["Log: [gosa_fnc_init] common done %1", time];
 
 if (!isMultiplayer) then {
 	{
-		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2SP.sqf')", _prefix, _x, _path];
+		//diag_log format ["Log: [gosa_fnc_init] waitUntil '%1%2'", _prefix, _x, _path];
+		//call compile format ["waitUntil {!isNil '%1%2'}", _prefix, _x, _path];
 	} forEach [
 		"fnc_isPlayer"
 	];
