@@ -1,6 +1,8 @@
 private ["_i","_ii","_E","_players","_side","_arr","_n"];
 
-_arr = [] call gosa_fnc_init_side_balance;
+waitUntil {!isNil "gosa_Groups_common"};
+waitUntil {!isNil "gosa_Groups_alliances"};
+_arr = [gosa_Groups_common, gosa_Groups_alliances] call gosa_fnc_init_side_balance;
 
 [] call compile preprocessFileLineNumbers "dir\server\cfg_mhq.sqf";
 

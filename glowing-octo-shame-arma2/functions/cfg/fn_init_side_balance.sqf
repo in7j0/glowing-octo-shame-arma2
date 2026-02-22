@@ -3,7 +3,7 @@
  * TODO: Должен быть динамичным, с возможностью вкл/выключать стороны после старта.
  */
 
-private ["_alliances","_alliance","_side","_arr0",
+private ["_alliances","_alliance","_side","_arr0","_Groups",
 	"_count","_spectator",
 	"_allDead",
 	"_cfgVeh",
@@ -26,6 +26,9 @@ private ["_alliances","_alliance","_side","_arr0",
 	"_superpower"
 ];
 
+_Groups = _this select 0;
+_alliances = _this select 1;
+
 _cfgVeh = LIB_cfgVeh;
 _pvp = false;
 _sides = [east, west, resistance];
@@ -43,8 +46,7 @@ _spectator = false;
 
 
 // TODO: Нужно учитывать колличество фракций стороны.
-waitUntil {!isNil "gosa_Groups_common"};
-_sides_cfi = [[0,1,2], gosa_Groups_common] call gosa_fnc_groups_get_cfi_side;
+_sides_cfi = [[0,1,2], _Groups] call gosa_fnc_groups_get_cfi_side;
 //_sides_cfi = [1,1,1];
 
 // Рейтинг сторон.
@@ -170,8 +172,6 @@ if (!isMultiplayer or _spectator) then {
 if !(_pvp) then {
 	_n = missionNamespace getVariable "gosa_side_alliances";
 	if (_n > 0) then {
-		waitUntil {!isNil "gosa_Groups_alliances"};
-		_alliances = gosa_Groups_alliances;
 		if (count _alliances > 0) then {
 			_alliance = (_alliances select 0 select 1);
 			if (count _problem0 > 1) then {
