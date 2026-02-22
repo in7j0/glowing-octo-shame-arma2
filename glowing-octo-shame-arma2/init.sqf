@@ -27,9 +27,9 @@ if !(requiredVersion "1.60") then {
 }else{
 #endif
 
-#ifdef __ARMA3__
-	BIS_fnc_init = true;
-#endif
+	if (isServer) then {
+		[] call compile preprocessFileLineNumbers "dir\server\init_server0.sqf";
+	};
 
 	[] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
 

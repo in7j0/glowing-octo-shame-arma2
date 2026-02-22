@@ -69,7 +69,7 @@ if(worldName == "namalsk")then{
 gosa_GroupIconsVisible = if (gosa_loglevel > 0) then {[true, true]}else{[true, false]};
 
 #ifndef __ARMA3__
-	waitUntil{!isNil "bis_fnc_init"};
+	waitUntil{!isNil "BIS_fnc_init"};
 #endif
 waitUntil{!isNil "gosa_fnc_init"};
 

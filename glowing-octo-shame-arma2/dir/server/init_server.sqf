@@ -1,5 +1,12 @@
 #define __A2OA__
 private ["_grp","_n"];
+
+#ifndef __ARMA3__
+	waitUntil {!isNil "BIS_fnc_init"};
+#endif
+waitUntil {!isNil "gosa_fnc_init"};
+waitUntil {!isNil "gosa_init_common_done"};
+
 #ifdef __ARMA3__
 	[] call gosa_fnc_base_generateRespawnsAll;
 #endif
@@ -7,15 +14,8 @@ private ["_grp","_n"];
 
 // FIXME: Возможно при использовании одной группы на все объекты,
 // то при изменении одного синхронизируются все их параметры по сети.
-_grp = createGroup sideLogic;
-gosa_grpLogic = _grp;
-publicVariable "gosa_grpLogic";
-// Совместимость.
-if (isNil "group_logic") then {group_logic = _grp};
-#ifndef __ARMA3__
-	BIS_missionScope = _grp createUnit ["FunctionsManager",[1000,10,0],[],0,"none"];
-	publicVariable "BIS_missionScope";
-#endif
+waitUntil {!isNil "gosa_grpLogic"};
+_grp = gosa_grpLogic;
 
 OnPlayerDisconnected "[_id, _uid, _name] ExecVM (""dir\server\eh_PlayerDisconnected.sqf"")";
 

@@ -736,4 +736,5 @@ gosa_commandingMenu = "#USER:"+_str+"_0";
 [] execVM ("dir\common\while_vehicles_lock.sqf");
 [] execVM ("dir\common\while_fps.sqf");
 
+gosa_init_common_done = true;
 diag_log format ["Log: [init_common] Done %1", time];

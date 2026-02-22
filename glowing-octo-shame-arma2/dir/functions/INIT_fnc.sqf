@@ -11,52 +11,9 @@ _path = "dir\Functions\";
 // файлы без приставки
 _prefix="gosa_";
 
-//--- сервер
-if (isServer) then {
-	_arr = [
-	];
-	for "_i" from 0 to (count _arr -1) do {
-		if (isNil format ["%1%2", _prefix, _arr select _i]) then {
-			//diag_log format ["Log: [gosa_fnc_init] waitUntil '%1%2'", _prefix, _arr select _i, _path];
-			//call compile format ["waitUntil {!isNil '%1%2'}", _prefix, _arr select _i, _path];
-		};
-	};
-};
-diag_log format ["Log: [gosa_fnc_init] server done %1", time];
-
-
-//--- клиент
-if !(IsDedicated) then {
-	_arr = [
-	];
-	for "_i" from 0 to (count _arr -1) do {
-		if (isNil format ["%1%2", _prefix, _arr select _i]) then {
-			//diag_log format ["Log: [gosa_fnc_init] waitUntil '%1%2'", _prefix, _arr select _i, _path];
-			//call compile format ["waitUntil {!isNil '%1%2'}", _prefix, _arr select _i, _path];
-		};
-	};
-};
-diag_log format ["Log: [gosa_fnc_init] client done %1", time];
-
-//--- общие
-_arr = [
-];
-for "_i" from 0 to (count _arr -1) do {
-	if (isNil format ["%1%2", _prefix, _arr select _i]) then {
-		//diag_log format ["Log: [gosa_fnc_init] waitUntil '%1%2'", _prefix, _arr select _i, _path];
-		//call compile format ["waitUntil {!isNil '%1%2'}", _prefix, _arr select _i, _path];
-	};
-};
-diag_log format ["Log: [gosa_fnc_init] common done %1", time];
-
-if (!isMultiplayer) then {
-	{
-		//diag_log format ["Log: [gosa_fnc_init] waitUntil '%1%2'", _prefix, _x, _path];
-		//call compile format ["waitUntil {!isNil '%1%2'}", _prefix, _x, _path];
-	} forEach [
-	];
-};
-
+#ifndef __ARMA3__
+	waitUntil {!isNil "BIS_fnc_init"};
+#endif
 
 #ifdef __ARMA3__
 	BIS_fnc_distance2D = {_this select 0 distance2D (_this select 1)};
