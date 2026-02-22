@@ -120,7 +120,7 @@ if (gosa_playerSide == sideLogic) exitWith {
 [] execVM ("dir\client\while_assignedVehicle.sqf");
 [] execVM ("dir\ban\while_ban.sqf");
 [] execVM "dir\testing\while_act_laserBomb.sqf";
-[] execVM "dir\functions\fnc_SSM_updateMenu.sqf";
+[] spawn gosa_fnc_SSM_updateMenu;
 [] execVM "dir\client\while_survival.sqf";
 
 /*

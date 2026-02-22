@@ -54,7 +54,7 @@ _tmp_arr=[
 	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","([]+GroupSelectedUnits player) call gosa_fnc_groupUnitsDismiss"],
 	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
 	[Localize "STR_gosa_join_the_squad",
-		"[[]+GroupSelectedUnits player] execVM 'dir\functions\fnc_menu_join.sqf'"]
+		"[[]+GroupSelectedUnits player] spawn gosa_fnc_menu_join"]
 	/*
 	setOwner не возвращает контроль над юнитами, но ломает управление игрокам
 	["setOwner (%SELECTED_UNIT_ID) player","
@@ -77,7 +77,7 @@ _tmp_arr=[
 if (isMultiplayer) then {
 	_tmp_arr=_tmp_arr+[
 		["selectPlayer Random","[] spawn gosa_fnc_selectPlayer_manual"],
-		["setSquad&Role prio.","[] execVM 'dir\functions\fnc_setSquadRole.sqf'"]
+		["setSquad&Role prio.","[] spawn gosa_fnc_setSquadRole"]
 	];
 };
 // Сохранение снаряжения работает только при возрождении на базе.
