@@ -54,7 +54,9 @@ if (missionNamespace getVariable "respawn" == 0 or _rMHQ) then {
 _types_respawn_blacklist = gosa_types_location;
 _markers_active = [];
 
-waitUntil{!isNil "bis_fnc_init"};
+#ifndef __ARMA3__
+	waitUntil{!isNil "BIS_fnc_init"};
+#endif
 waitUntil{!isNil "gosa_fnc_init"};
 
 // Имена маркеров, маркеры локальные и не должны конфликтовать в pvp.

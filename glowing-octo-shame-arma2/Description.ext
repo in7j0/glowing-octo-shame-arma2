@@ -1264,6 +1264,7 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class MARTA_showRules_all {};
 			class menu_pre {};
 			class unit_findLeaderByDisplayName {};
 			class init_side_balance {};

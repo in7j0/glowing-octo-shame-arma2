@@ -11,7 +11,10 @@ for "_i" from 0 to (count _arr -1) do {
 	_arr set [_i, [_arr select _i, [] execVM (_arr select _i)]];
 };
 
-waitUntil {!isNil "bis_fnc_init" && !isNil "gosa_fnc_init"};
+#ifndef __ARMA3__
+	waitUntil{!isNil "BIS_fnc_init"};
+#endif
+waitUntil {!isNil "gosa_fnc_init"};
 
 while {sleep 30; true} do {
 	for "_i" from 0 to (count _arr -1) do {

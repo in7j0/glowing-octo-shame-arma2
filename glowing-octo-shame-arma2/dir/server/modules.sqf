@@ -1,5 +1,7 @@
 private ["_z"];
-waitUntil {!isNil "BIS_fnc_init"};
+#ifndef __ARMA3__
+	waitUntil {!isNil "BIS_fnc_init"};
+#endif
 waitUntil {!isNil "group_logic"};
 
 // вылазит ни на что не влияющая ошибка при старте миссии где то во встроенных в игру модулях, конкретно в MartaManager

@@ -55,7 +55,9 @@ for "_i" from 0 to (count _arr -1) do {
 diag_log format ["Log: [respawnVehicles] %1", _arr];
 diag_log format ["Log: [respawnVehicles] %1", _arr0];
 
-waitUntil {!isNil "BIS_fnc_init"};
+#ifndef __ARMA3__
+	waitUntil{!isNil "BIS_fnc_init"};
+#endif
 waitUntil {!isNil "gosa_fnc_init"};
 
 while {sleep (12 + random 5); true} do {

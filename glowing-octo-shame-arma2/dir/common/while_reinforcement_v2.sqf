@@ -20,7 +20,9 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 
 diag_log format ["Log: [reinforcements] started %1", time ];
 
-waitUntil {!isNil "bis_fnc_init"};
+#ifndef __ARMA3__
+	waitUntil{!isNil "BIS_fnc_init"};
+#endif
 	waitUntil {!isNil "gosa_fnc_init"};
 	waitUntil {!isNil "GroupsStarted"};
 	waitUntil {!isNil "gosa_framesAVG"};

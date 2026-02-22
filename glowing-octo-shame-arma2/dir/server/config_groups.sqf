@@ -3169,7 +3169,9 @@ _guer=[
 */
 #endif
 
-waitUntil {!isNil "bis_fnc_init"};
+#ifndef __ARMA3__
+	waitUntil{!isNil "BIS_fnc_init"};
+#endif
 
 // Для совместимости.
 gosa_Groups_alliances = [];
